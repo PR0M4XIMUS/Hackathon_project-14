@@ -1,3 +1,13 @@
 #env
 
 config.ini
+
+#local
+/sessions
+/venv
+
+
+#unused
+.DS_Store
+script_ollama_backup.py
+/imgs
