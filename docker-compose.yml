@@ -1,0 +1,29 @@
+services:
+  telbot:
+    image: dockerbot:latest
+    depends_on:
+      - ollama
+    volumes:
+      - ./sessions:/sessions
+    networks:
+      - bot-network
+      
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - /Users/milkshake/.ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+    networks:
+      - bot-network
+
+volumes:
+  ollama-data:
+
+networks:
+  bot-network:
+    driver: bridge
